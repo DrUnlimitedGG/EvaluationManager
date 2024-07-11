@@ -44,7 +44,93 @@ script.Parent.MouseButton1Click:Connect(function()
 	if p2 then
 		exportString = exportString .. "\n\n**Phase 2** - "
 
+		if data.Phase2.PassedPhase.Value then
+			exportString = exportString .. "__Passed__\n"
+		end
+
+		if data.Phase2.PassedPhase.Value == false then
+			exportString = exportString .. "__Failed__\n"
+		end
+
+		if data.Phase2.PassFail.PassedR1.Value or data.Phase2.PassFail.PassedR2.Value then
+
+			if data.Phase2.PassFail.PassedR1.Value then
+				exportString = exportString .. "> :white_check_mark: " .. data.Phase2.PassFail.R1Type.Value
+
+				if not (data.Phase2.Notes.Round1Notes.Value == "") then
+					exportString = exportString .. " - " .. data.Phase2.Notes.Round1Notes.Value
+				end
+			elseif data.Phase2.PassFail.PassedR1.Value == false then
+				exportString = exportString .. "> :x: " .. data.Phase2.PassFail.R1Type.Value
+
+				if not (data.Phase2.Notes.Round1Notes.Value == "") then
+					exportString = exportString .. " - " .. data.Phase2.Notes.Round1Notes.Value
+				end
+			end
+
+			exportString = exportString .. "\n"
+
+			if data.Phase2.PassFail.PassedR2.Value then
+				exportString = exportString .. "> :white_check_mark: " .. data.Phase2.PassFail.R2Type.Value
+
+				if not (data.Phase2.Notes.Round2Notes.Value == "") then
+					exportString = exportString .. " - " .. data.Phase2.Notes.Round2Notes.Value
+				end
+			elseif data.Phase2.PassFail.PassedR2.Value == false then
+				exportString = exportString .. "> :x: " .. data.Phase2.PassFail.R2Type.Value
+
+				if not (data.Phase2.Notes.Round2Notes.Value == "") then
+					exportString = exportString .. " - " .. data.Phase2.Notes.Round2Notes.Value
+				end
+			end
+
+		
 
 	end
 
+	if p3 then
+		exportString = exportString .. "\n\n**Phase 3** - "
+
+		if data.Phase3.PassedPhase.Value then
+			exportString = exportString .. "__Passed__\n:white_check_mark: Juggernaut Dodging"
+
+			if not (data.Phase3.Notes.Value == "") then
+				exportString = exportString .. " - " .. data.Phase3.Notes.Value
+			end
+		end
+
+		if data.Phase3.PassedPhase.Value == false then
+			exportString = exportString .. "__Failed__\n:x: Juggernaut Dodging"
+
+			if not (data.Phase3.Notes.Value == "") then
+				exportString = exportString .. " - " .. data.Phase3.Notes.Value
+			end
+		end
+
+
+	end
+
+	if p4 then
+		exportString = exportString .. "\n\n**Phase 4** - "
+
+		if data.Phase4.PassedPhase.Value then
+			exportString = exportString .. "__Passed__ (" .. tostring(data.Phase4.QuestionsPassed.Value) .. "/8)\n"
+
+		end
+
+		if data.Phase4.PassedPhase.Value == false then
+			exportString = exportString .. "__Failed__ (" .. tostring(data.Phase4.QuestionsPassed.Value) .. "/8)\n"
+		end
+
+	end
+
+	exportString = exportString .. "\n\n__Verdict__:"
+	exportString = exportString .. "\n\n__Discussion__"
+
+	script.Parent.Parent.Export.TextScaled = true
+	script.Parent.Parent.Export.Text = exportString
+	script.Parent.Parent.Export.Visible = true
+
 end)
+
+
