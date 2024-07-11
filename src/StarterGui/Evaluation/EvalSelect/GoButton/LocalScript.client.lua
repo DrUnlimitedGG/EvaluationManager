@@ -12,7 +12,9 @@ script.Parent.MouseButton1Click:Connect(function()
 		notifications.notification("You need to actually fill it out bro")
 	else
 		script.Parent.Parent.Parent.DATA.Username.Value = username
+		script.Parent.Parent.Parent.Operative.DATA.Username.Value = username
 
+		script.Parent.Parent.Parent.Operative.DATA.EvalSelected.Value = rank
 
 		notifications.notification("Beginning " .. rank .. " eval for " .. username)
 
