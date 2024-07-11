@@ -28,9 +28,6 @@ script.Parent.MouseButton1Click:Connect(function()
 		if rank == "Trooper" then
 			script.Parent.Parent.Parent.Panel.Visible = true
 			script.Parent.Parent.Parent.Panel:TweenPosition(UDim2.new(0,0,1,0))
-		elseif rank == "Operative" then
-			script.Parent.Parent.Parent.Operative.Panel.Visible = true
-			script.Parent.Parent.Parent.Operative.Panel:TweenPosition(UDim2.new(0,0,1,0))
 			
 		end
 	end
