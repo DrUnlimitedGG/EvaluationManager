@@ -21,8 +21,6 @@ script.Parent.MouseButton1Click:Connect(function()
 		remote:FireServer()
 		evalueeRemote:FireServer(username)
 
-		script.Parent.Parent:TweenPosition(UDim2.new(0.5, 0, 1.5, 0))
-		wait(2)
 		script.Parent.Parent.Visible = false
 
 		if rank == "Trooper" then
@@ -33,6 +31,7 @@ script.Parent.MouseButton1Click:Connect(function()
 			script.Parent.Parent.Parent.Operative.Panel:TweenPosition(UDim2.new(0,0,1,0))
 
 		end
+
 	end
 
 end)
