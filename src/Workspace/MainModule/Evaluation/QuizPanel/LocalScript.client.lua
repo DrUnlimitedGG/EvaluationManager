@@ -1,0 +1,1 @@
+script.Parent.Position = UDim2.new(0.5, 0,2, 0)
