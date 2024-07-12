@@ -58,13 +58,97 @@ script.Parent.MouseButton1Click:Connect(function()
 			exportString = exportString .. "__Failed__\n"
 		end
 			
-		
+		if data.Phase3.PassFail.PassedR1.Value or data.Phase3.PassFail.PassedR2.Value then
+				
+			if data.Phase3.PassFail.PassedR1.Value then
+				exportString = exportString .. "> :white_check_mark: " .. data.Phase3.PassFail.R1Type.Value
+					
+				if not (data.Phase3.Notes.Round1Notes.Value == "") then
+					exportString = exportString .. " - " .. data.Phase3.Notes.Round1Notes.Value
+				end
+			elseif data.Phase3.PassFail.PassedR1.Value == false then
+				exportString = exportString .. "> :x: " .. data.Phase3.PassFail.R1Type.Value
+
+				if not (data.Phase3.Notes.Round1Notes.Value == "") then
+					exportString = exportString .. " - " .. data.Phase3.Notes.Round1Notes.Value
+				end
+			end
+				
+			exportString = exportString .. "\n"
+				
+			if data.Phase3.PassFail.PassedR2.Value then
+				exportString = exportString .. "> :white_check_mark: " .. data.Phase3.PassFail.R2Type.Value
+
+				if not (data.Phase3.Notes.Round2Notes.Value == "") then
+					exportString = exportString .. " - " .. data.Phase3.Notes.Round2Notes.Value
+				end
+			elseif data.Phase3.PassFail.PassedR2.Value == false then
+				exportString = exportString .. "> :x: " .. data.Phase3.PassFail.R2Type.Value
+
+				if not (data.Phase3.Notes.Round2Notes.Value == "") then
+					exportString = exportString .. " - " .. data.Phase3.Notes.Round2Notes.Value
+				end
+			end
+				
+		elseif not (data.Phase3.PassFail.PassedR1.Value or data.Phase3.PassFail.PassedR2.Value) then
+				
+			if data.Phase3.PassFail.PassedR1.Value then
+				exportString = exportString .. "> :white_check_mark: " .. data.Phase3.PassFail.R1Type.Value
+
+				if not (data.Phase3.Notes.Round1Notes.Value == "") then
+					exportString = exportString .. " - " .. data.Phase3.Notes.Round1Notes.Value
+				end
+			elseif data.Phase3.PassFail.PassedR1.Value == false then
+				exportString = exportString .. "> :x: " .. data.Phase3.PassFail.R1Type.Value
+
+				if not (data.Phase3.Notes.Round1Notes.Value == "") then
+					exportString = exportString .. " - " .. data.Phase3.Notes.Round1Notes.Value
+				end
+			end
+
+			exportString = exportString .. "\n"
+
+			if data.Phase3.PassFail.PassedR2.Value then
+				exportString = exportString .. "> :white_check_mark: " .. data.Phase3.PassFail.R2Type.Value
+
+				if not (data.Phase3.Notes.Round2Notes.Value == "") then
+					exportString = exportString .. " - " .. data.Phase3.Notes.Round2Notes.Value
+				end
+			elseif data.Phase3.PassFail.PassedR2.Value == false then
+				exportString = exportString .. "> :x: " .. data.Phase3.PassFail.R2Type.Value
+
+				if not (data.Phase3.Notes.Round2Notes.Value == "") then
+					exportString = exportString .. " - " .. data.Phase3.Notes.Round2Notes.Value
+				end
+			end
+				
+			exportString = exportString .. "\n> ---\n"
+				
+			if data.Phase3.PassFail.PassedRed.Value then
+				exportString = exportString .. "> :white_check_mark: " .. data.Phase3.PassFail.RedType.Value
+
+				if not (data.Phase3.Notes.RedemptionNotes.Value == "") then
+					exportString = exportString .. " - " .. data.Phase3.Notes.RedemptionNotes.Value
+				end
+			elseif data.Phase3.PassFail.PassedRed.Value == false then
+				exportString = exportString .. "> :x: " .. data.Phase3.PassFail.RedType.Value
+
+				if not (data.Phase3.Notes.RedemptionNotes.Value == "") then
+					exportString = exportString .. " - " .. data.Phase3.Notes.RedemptionNotes.Value
+				end
+			end
+		end
 			
 	end
 	
 	
 	
-	
+	exportString = exportString .. "\n\n__Verdict__:"
+	exportString = exportString .. "\n\n__Discussion__"
+
+	script.Parent.Parent.Export.TextScaled = true
+	script.Parent.Parent.Export.Text = exportString
+	script.Parent.Parent.Export.Visible = true
 
 end)
 
